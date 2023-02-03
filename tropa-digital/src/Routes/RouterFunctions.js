@@ -1,7 +1,7 @@
 export const goToHomePage = (navigate) => {
-    navigate(`/`)
+    navigate(`/grid`)
 };
 
-export const goToGridPage = (navigate) => {
-    navigate(`/grid`)
+export const goToLoginPage = (navigate) => {
+    navigate(`/`)
 };
