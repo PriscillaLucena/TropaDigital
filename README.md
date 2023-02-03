@@ -1,2 +1,2 @@
 # TropaDigital
-teste Frnt-end
+teste Front-end
