@@ -8,28 +8,31 @@ import {
     ContainerButton, ContainerCard, ContainerGeral, ContainerImagemPc, ContainerLetras,
     ContainerPrancheta, ContainerRetangulo3, ContainerBox1, ContainerBox2, Laranja
 } from "../PageStyles/LoginStyles";
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { onDragOver, onDragStart, onDrop } from "../dnd/dndFunctions";
 
 
 export const LoginPage = () => {
 
     const navigate = useNavigate()
 
+
+
     return (
+        <div>
 
-        <ContainerGeral >
+            <div id={'dragabble'} draggable="true" ondragstart={(e) => onDragStart(e.target)}>
+                <ContainerCard></ContainerCard>
+                <ContainerLetras>Bem Vindo ao <Laranja>painel</Laranja></ContainerLetras>
+                <ContainerRetangulo3 src={ceu} ></ContainerRetangulo3>
+                <ContainerPrancheta src={logo}></ContainerPrancheta>
+                <ContainerImagemPc src={pc}></ContainerImagemPc>
+                <ContainerBox1>Digite seu e-mail </ContainerBox1>
+                <ContainerBox2>Digite sua senha
+                    <img src={senha} /> </ContainerBox2>
+                <ContainerButton onClick={() => goToHomePage(navigate)} >Acessar</ContainerButton>
+            </div>
+            <ContainerGeral ondragover={(e) => onDragOver(e.target)} ondrop={(e) => onDrop(e.target)}></ContainerGeral>
 
-            <ContainerCard></ContainerCard>
-            <ContainerLetras>Bem Vindo ao <Laranja>painel</Laranja></ContainerLetras>
-            <ContainerRetangulo3 src={ceu} ></ContainerRetangulo3>
-            <ContainerPrancheta src={logo}></ContainerPrancheta>
-            <ContainerImagemPc src={pc}></ContainerImagemPc>
-            <ContainerBox1>Digite seu e-mail </ContainerBox1>
-            <ContainerBox2>Digite sua senha
-                <img src={senha} /> </ContainerBox2>
-            <ContainerButton onClick={() => goToHomePage(navigate)} >Acessar</ContainerButton>
-
-        </ContainerGeral>
-
+        </div>
     )
 };
